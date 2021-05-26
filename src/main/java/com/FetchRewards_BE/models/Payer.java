@@ -1,19 +1,18 @@
 package com.FetchRewards_BE.models;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
-import java.util.PriorityQueue;
 
 @Entity
 @Table(name="Payer")
+@SequenceGenerator(name = "PAYER_SEQ")
 public class Payer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator="PAYER_SEQ")
     private long id;
     @Column(unique = true)
     private String user;
     private int points;
+
 
 
     public Payer(){
@@ -23,6 +22,7 @@ public class Payer {
         super();
         this.points = points;
         this.user=user;
+
     }
 
     public int getPoints() {
@@ -35,4 +35,6 @@ public class Payer {
     public long getId(){
         return id;
     }
+
+
 }

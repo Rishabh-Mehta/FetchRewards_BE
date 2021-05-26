@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Transaction")
-
+@SequenceGenerator(name = "TRANSACTION_SEQ")
 public class Transaction {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "TRANSACTION_SEQ")
     private long id;
     private String user;
     private String provider;

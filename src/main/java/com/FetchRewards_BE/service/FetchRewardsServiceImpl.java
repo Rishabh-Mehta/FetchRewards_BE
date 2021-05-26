@@ -47,18 +47,20 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
 
     @Override
     public void Reedem(Points points) {
+        //Build a priority queue sorted with timestamp
         PriorityQueue<Transaction> queue = new PriorityQueue<>((a,b) -> a.getTimeStamp().compareTo(b.getTimeStamp()));
         queue.addAll(transactionRepository.findByUser(points.getUser()));
-
+        //String reedem_req =
         int pointsToReedem = points.getPoints();
         if(payerRepository.findByUser(points.getUser()).get(0).getPoints() >= pointsToReedem){
             while(!queue.isEmpty() || pointsToReedem !=0){
                 Transaction t = queue.peek();
                 if( t.getStatus() == "AVAILABLE"){
                     if(t.getPoints()< pointsToReedem){
+                        // If Earliest transaction points are less than points to be reedemed
                         pointsToReedem -= queue.peek().getPoints();
+                        //Mark the transaction processed
                         transactionRepository.updateTransactionById(t.getId(),t.getPoints(),"PROCESSED");
-
 
                         queue.poll();
 
@@ -73,7 +75,7 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
                     }
                 }
                 else {
-
+                    //Ignore all transactions whose status does not match
                     queue.poll();
 
                 }
@@ -94,6 +96,6 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
 
 
         }
-        //return payerRepository.ReedemTransactionResult(points.getUser());
+
     }
 }
