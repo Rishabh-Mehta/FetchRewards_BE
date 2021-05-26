@@ -1,6 +1,5 @@
 package com.FetchRewards_BE.models;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -16,40 +15,38 @@ public class Transaction {
     @GeneratedValue(generator = "TRANSACTION_SEQ")
     private long id;
 
-    private long transaction_reedemed_id ;
+    private long transaction_reedemed_id;
 
     private UUID redeem_request_id;
-    //private String user;
+
     private String payer;
     private int awarded_points;
     private int available_points;
-    @CreationTimestamp
-    private LocalDateTime timeStamp;
+
+    private LocalDateTime timestamp;
     @UpdateTimestamp
     private LocalDateTime updatetimestamp;
 
     private String status;
 
-    public Transaction(){
+    public Transaction() {
 
     }
-    public Transaction(/*String user,*/String provider, int points ){
+
+    public Transaction(String provider, int points, LocalDateTime timeStamp) {
         super();
-        //this.user = user;
+
         this.payer = provider;
-        this.available_points = points;
         this.awarded_points = points;
+        if(points < 0)
+            this.available_points = 0;
+        else
+            this.available_points = points;
+        this.timestamp = timeStamp;
 
         this.redeem_request_id = null;
     }
 
-//    public String getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(String user) {
-//        this.user = user;
-//    }
 
     public int getAvailable_points() {
         return available_points;
@@ -60,14 +57,13 @@ public class Transaction {
     }
 
 
-    public long getId(){
-        return  id;
+    public long getId() {
+        return id;
     }
 
 
-
-    public LocalDateTime getTimeStamp() {
-        return timeStamp;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
 
@@ -94,7 +90,6 @@ public class Transaction {
     public void setAwarded_points(int awarded_points) {
         this.awarded_points = awarded_points;
     }
-
 
 
     public long getTransaction_reedemed_id() {

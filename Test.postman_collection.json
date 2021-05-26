@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "8a6be70e-d6c4-4b3b-a29c-d1a8260a2c12",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "points",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": 1000, \"timestamp\": \"2020-11-02T14:00:00Z\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "points",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": 1000, \"timestamp\": \"2020-11-02T14:00:00Z\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payer/transaction/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"transaction",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:01:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"transaction_reedemed_id\": 0,\n    \"redeem_request_id\": null,\n    \"payer\": \"DANNON\",\n    \"awarded_points\": 1000,\n    \"available_points\": 1000,\n    \"timestamp\": \"2020-11-02T14:00:00\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"payer\": \"UNILEVER\", \"awarded_points\": 200, \"timestamp\": \"2020-10-31T11:00:00Z\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"payer\": \"UNILEVER\", \"awarded_points\": 200, \"timestamp\": \"2020-10-31T11:00:00Z\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payer/transaction/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"transaction",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:01:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"transaction_reedemed_id\": 0,\n    \"redeem_request_id\": null,\n    \"payer\": \"UNILEVER\",\n    \"awarded_points\": 200,\n    \"available_points\": 200,\n    \"timestamp\": \"2020-10-31T11:00:00\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": -200, \"timestamp\": \"2020-10-31T15:00:00Z\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": -200, \"timestamp\": \"2020-10-31T15:00:00Z\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payer/transaction/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"transaction",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:01:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"transaction_reedemed_id\": 0,\n    \"redeem_request_id\": null,\n    \"payer\": \"DANNON\",\n    \"awarded_points\": -200,\n    \"available_points\": -200,\n    \"timestamp\": \"2020-10-31T15:00:00\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"payer\": \"MILLER COORS\", \"awarded_points\": 10000, \"timestamp\": \"2020-11-01T14:00:00Z\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"payer\": \"MILLER COORS\", \"awarded_points\": 10000, \"timestamp\": \"2020-11-01T14:00:00Z\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payer/transaction/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"transaction",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:01:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"transaction_reedemed_id\": 0,\n    \"redeem_request_id\": null,\n    \"payer\": \"MILLER COORS\",\n    \"awarded_points\": 10000,\n    \"available_points\": 10000,\n    \"timestamp\": \"2020-11-01T14:00:00\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": 300, \"timestamp\": \"2020-10-31T10:00:00Z\" }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"payer\": \"DANNON\", \"awarded_points\": 300, \"timestamp\": \"2020-10-31T10:00:00Z\" }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payer/transaction/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"transaction",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:01:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"transaction_reedemed_id\": 0,\n    \"redeem_request_id\": null,\n    \"payer\": \"DANNON\",\n    \"awarded_points\": 300,\n    \"available_points\": 300,\n    \"timestamp\": \"2020-10-31T10:00:00\",\n    \"status\": \"AVAILABLE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payer/balances/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"balances",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/payer/balances/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"balances",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:02:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"payer\": \"DANNON\",\n        \"points\": 1100\n    },\n    {\n        \"id\": 2,\n        \"payer\": \"UNILEVER\",\n        \"points\": 200\n    },\n    {\n        \"id\": 3,\n        \"payer\": \"MILLER COORS\",\n        \"points\": 10000\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transactions/log/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						"log",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transactions/log/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transactions",
+								"log",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:02:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"transaction_reedemed_id\": 0,\n        \"redeem_request_id\": null,\n        \"payer\": \"DANNON\",\n        \"awarded_points\": 1000,\n        \"available_points\": 1000,\n        \"timestamp\": \"2020-11-02T14:00:00\",\n        \"status\": \"AVAILABLE\"\n    },\n    {\n        \"id\": 2,\n        \"transaction_reedemed_id\": 0,\n        \"redeem_request_id\": null,\n        \"payer\": \"UNILEVER\",\n        \"awarded_points\": 200,\n        \"available_points\": 200,\n        \"timestamp\": \"2020-10-31T11:00:00\",\n        \"status\": \"AVAILABLE\"\n    },\n    {\n        \"id\": 3,\n        \"transaction_reedemed_id\": 0,\n        \"redeem_request_id\": null,\n        \"payer\": \"DANNON\",\n        \"awarded_points\": -200,\n        \"available_points\": -200,\n        \"timestamp\": \"2020-10-31T15:00:00\",\n        \"status\": \"AVAILABLE\"\n    },\n    {\n        \"id\": 4,\n        \"transaction_reedemed_id\": 0,\n        \"redeem_request_id\": null,\n        \"payer\": \"MILLER COORS\",\n        \"awarded_points\": 10000,\n        \"available_points\": 10000,\n        \"timestamp\": \"2020-11-01T14:00:00\",\n        \"status\": \"AVAILABLE\"\n    },\n    {\n        \"id\": 5,\n        \"transaction_reedemed_id\": 0,\n        \"redeem_request_id\": null,\n        \"payer\": \"DANNON\",\n        \"awarded_points\": 300,\n        \"available_points\": 300,\n        \"timestamp\": \"2020-10-31T10:00:00\",\n        \"status\": \"AVAILABLE\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"points\":5000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payer/transaction/redeem",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"transaction",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/payer/balances/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payer",
+						"balances",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/payer/balances/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payer",
+								"balances",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 May 2021 23:05:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"payer\": \"DANNON\",\n        \"points\": 1000\n    },\n    {\n        \"id\": 2,\n        \"payer\": \"UNILEVER\",\n        \"points\": 0\n    },\n    {\n        \"id\": 3,\n        \"payer\": \"MILLER COORS\",\n        \"points\": 5300\n    }\n]"
+				}
+			]
+		}
+	]
+}

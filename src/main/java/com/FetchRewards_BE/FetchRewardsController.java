@@ -39,9 +39,9 @@ public class FetchRewardsController {
         return fetchRewardsService.addPoints(transaction);
     }
 
-    @PostMapping(path = "/payer/transaction/reedem", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    void ReedemPoints(@RequestBody Points points){
-        fetchRewardsService.Reedem(points);
+    @PostMapping(path = "/payer/transaction/redeem", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    List<Transaction> RedeemPoints(@RequestBody Points points){
+        return fetchRewardsService.Reedem(points);
 
     }
 

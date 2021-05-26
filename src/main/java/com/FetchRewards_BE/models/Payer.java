@@ -3,27 +3,28 @@ package com.FetchRewards_BE.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Payer")
+@Table(name = "Payer")
 @SequenceGenerator(name = "PAYER_SEQ")
 public class Payer {
     @Id
-    @GeneratedValue(generator="PAYER_SEQ")
+    @GeneratedValue(generator = "PAYER_SEQ")
     private long id;
     @Column(unique = true)
     private String payer;
     private int points;
 
 
-
-    public Payer(){
+    public Payer() {
 
     }
-    public Payer(String user,int points){
+
+    public Payer(String user, int points) {
         super();
         this.points = points;
-        this.payer =user;
+        this.payer = user;
 
     }
+
     public String getPayer() {
         return payer;
     }
@@ -40,7 +41,8 @@ public class Payer {
     public void setPoints(int points) {
         this.points = points;
     }
-    public long getId(){
+
+    public long getId() {
         return id;
     }
 

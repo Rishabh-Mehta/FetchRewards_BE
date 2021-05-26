@@ -4,13 +4,15 @@ package com.FetchRewards_BE.models;
 public class Points {
 
     private int points;
-    private String payer;
-    public Points(){
+
+
+    public Points() {
 
     }
-    public Points(String user ,int points){
+
+    public Points(int points) {
         super();
-        this.payer = user;
+
         this.points = points;
     }
 
@@ -22,11 +24,5 @@ public class Points {
         this.points = points;
     }
 
-    public String getPayer() {
-        return payer;
-    }
 
-    public void setPayer(String payer) {
-        this.payer = payer;
-    }
 }
