@@ -2,7 +2,7 @@ package com.FetchRewards_BE.models;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.id.uuid.*;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -18,9 +18,9 @@ public class Transaction {
 
     private long transaction_reedemed_id ;
 
-    private UUID reedem_request_id;
-    private String user;
-    private String provider;
+    private UUID redeem_request_id;
+    //private String user;
+    private String payer;
     private int awarded_points;
     private int available_points;
     @CreationTimestamp
@@ -33,23 +33,23 @@ public class Transaction {
     public Transaction(){
 
     }
-    public Transaction(String user,String provider, int points ){
+    public Transaction(/*String user,*/String provider, int points ){
         super();
-        this.user = user;
-        this.provider = provider;
+        //this.user = user;
+        this.payer = provider;
         this.available_points = points;
         this.awarded_points = points;
 
-        this.reedem_request_id = null;
+        this.redeem_request_id = null;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
+//    public String getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(String user) {
+//        this.user = user;
+//    }
 
     public int getAvailable_points() {
         return available_points;
@@ -79,12 +79,12 @@ public class Transaction {
         this.status = status;
     }
 
-    public String getProvider() {
-        return provider;
+    public String getPayer() {
+        return payer;
     }
 
-    public void setProvider(String provider) {
-        this.provider = provider;
+    public void setPayer(String payer) {
+        this.payer = payer;
     }
 
     public int getAwarded_points() {
@@ -105,11 +105,11 @@ public class Transaction {
         this.transaction_reedemed_id = transaction_reedemed_id;
     }
 
-    public UUID getReedem_request_id() {
-        return reedem_request_id;
+    public UUID getRedeem_request_id() {
+        return redeem_request_id;
     }
 
-    public void setReedem_request_id(UUID reedem_request_id) {
-        this.reedem_request_id = reedem_request_id;
+    public void setRedeem_request_id(UUID redeem_request_id) {
+        this.redeem_request_id = redeem_request_id;
     }
 }

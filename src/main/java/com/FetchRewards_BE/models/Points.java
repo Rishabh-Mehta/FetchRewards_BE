@@ -1,18 +1,16 @@
 package com.FetchRewards_BE.models;
 
-import javax.persistence.Entity;
-
 
 public class Points {
 
     private int points;
-    private String user;
+    private String payer;
     public Points(){
 
     }
     public Points(String user ,int points){
         super();
-        this.user = user;
+        this.payer = user;
         this.points = points;
     }
 
@@ -24,11 +22,11 @@ public class Points {
         this.points = points;
     }
 
-    public String getUser() {
-        return user;
+    public String getPayer() {
+        return payer;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setPayer(String payer) {
+        this.payer = payer;
     }
 }

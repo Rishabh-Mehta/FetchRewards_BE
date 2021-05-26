@@ -8,12 +8,12 @@ import java.util.List;
 
 public interface FetchRewardsService {
 
-    List<Payer> getAllPlayerBalance();
+    List<Payer> getAllPayerBalance();
 
     List<Transaction> getAllTransactions();
 
     Transaction addPoints(Transaction transaction);
 
 
-    void Reedem(Points points);
+    List<Transaction> Reedem(Points points);
 }

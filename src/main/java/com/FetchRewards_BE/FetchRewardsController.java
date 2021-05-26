@@ -22,10 +22,11 @@ public class FetchRewardsController {
         return "Welcome";
     }
     @GetMapping("/payer/balances")
-    List<Payer> getAllPlayerBalance(){
+    List<Payer> getAllPayerBalance(){
 
-        return fetchRewardsService.getAllPlayerBalance();
+        return fetchRewardsService.getAllPayerBalance();
     }
+
     @GetMapping("/transactions/log")
     List<Transaction> getAllTransactions(){
         return fetchRewardsService.getAllTransactions();

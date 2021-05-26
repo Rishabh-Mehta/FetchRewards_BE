@@ -10,7 +10,7 @@ public class Payer {
     @GeneratedValue(generator="PAYER_SEQ")
     private long id;
     @Column(unique = true)
-    private String user;
+    private String payer;
     private int points;
 
 
@@ -21,9 +21,17 @@ public class Payer {
     public Payer(String user,int points){
         super();
         this.points = points;
-        this.user=user;
+        this.payer =user;
 
     }
+    public String getPayer() {
+        return payer;
+    }
+
+    public void setPayer(String payer) {
+        this.payer = payer;
+    }
+
 
     public int getPoints() {
         return points;

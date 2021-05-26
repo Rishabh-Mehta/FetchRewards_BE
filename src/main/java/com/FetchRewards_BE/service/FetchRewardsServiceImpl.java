@@ -25,7 +25,7 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
     TransactionRepository transactionRepository;
 
     @Override
-    public List<Payer> getAllPlayerBalance() {
+    public List<Payer> getAllPayerBalance() {
         return payerRepository.findAll();
     }
 
@@ -38,57 +38,57 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
     public Transaction addPoints(Transaction transaction) {
         transaction.setStatus("AVAILABLE");
         transaction.setAvailable_points(transaction.getAwarded_points());
-        if(!payerRepository.findByUser(transaction.getUser()).isEmpty()){
-            Payer p = payerRepository.findByUser(transaction.getUser()).get(0);
+        if(!payerRepository.findByPayer(transaction.getPayer()).isEmpty()){
+            Payer p = payerRepository.findByPayer(transaction.getPayer()).get(0);
             payerRepository.addPoints(transaction.getAwarded_points(),p.getId());
         }
         else{
-            payerRepository.save(new Payer(transaction.getUser(),transaction.getAwarded_points()));
+            payerRepository.save(new Payer(transaction.getPayer(),transaction.getAwarded_points()));
         }
         return transactionRepository.save(transaction);
     }
 
     @Override
-    public void Reedem(Points points) {
+    public List<Transaction> Reedem(Points points) {
         //Build a priority queue sorted with timestamp
         PriorityQueue<Transaction> queue = new PriorityQueue<>((a,b) -> a.getTimeStamp().compareTo(b.getTimeStamp()));
-        queue.addAll(transactionRepository.findByUser(points.getUser()));
+        queue.addAll(transactionRepository.findByPayer(points.getPayer()));
 
-        UUID reedem_request_id = UUID.randomUUID();
-        int pointsToReedem = points.getPoints();
-        if(payerRepository.findByUser(points.getUser()).get(0).getPoints() >= pointsToReedem){
-            while(!queue.isEmpty() || pointsToReedem !=0){
+        UUID redeem_request_id = UUID.randomUUID();
+        int pointsToRedeem = points.getPoints();
+        if(payerRepository.findByPayer(points.getPayer()).get(0).getPoints() >= pointsToRedeem){
+            while(!queue.isEmpty() || pointsToRedeem !=0){
                 Transaction t = queue.peek();
                 if( t.getStatus() == "AVAILABLE"){
-                    if(t.getAvailable_points()< pointsToReedem){
+                    if(t.getAvailable_points()< pointsToRedeem){
                         // If Earliest transaction points are less than points to be reedemed
-                        pointsToReedem -= t.getAvailable_points();
+                        pointsToRedeem -= t.getAvailable_points();
 
                         //Mark the transaction processed
                         transactionRepository.updateTransactionById(t.getId(),0,"PROCESSED");
 
-                        //Create a Transaction to show points REEDEMED
-                        Transaction Reedem = new Transaction(points.getUser(),"REEDEM_"+t.getProvider(),-t.getAvailable_points());
-                        Reedem.setTransaction_reedemed_id(t.getId());
-                        Reedem.setReedem_request_id(reedem_request_id);
-                        Reedem.setStatus("REEDEM");
-                        transactionRepository.save(Reedem);
+                        //Create a Transaction to show points REDEEMED
+                        Transaction Redeem = new Transaction(points.getPayer(),-t.getAvailable_points());
+                        Redeem.setTransaction_reedemed_id(t.getId());
+                        Redeem.setRedeem_request_id(redeem_request_id);
+                        Redeem.setStatus("REDEEM");
+                        transactionRepository.save(Redeem);
 
                         queue.poll();
 
                     }
 
                     else{
-                        int remainingPoints = t.getAvailable_points() - pointsToReedem;
+                        int remainingPoints = t.getAvailable_points() - pointsToRedeem;
                         transactionRepository.updateTransactionById(queue.poll().getId(),remainingPoints,"AVAILABLE");
-                        pointsToReedem=0;
+                        pointsToRedeem=0;
 
-                        //Create a Transaction to show points REEDEMED
-                        Transaction Reedem = new Transaction(points.getUser(),"REEDEM_"+t.getProvider(),-remainingPoints);
-                        Reedem.setTransaction_reedemed_id(t.getId());
-                        Reedem.setReedem_request_id(reedem_request_id);
-                        Reedem.setStatus("REEDEM");
-                        transactionRepository.save(Reedem);
+                        //Create a Transaction to show points REDEEMED
+                        Transaction Redeem = new Transaction(points.getPayer(),-remainingPoints);
+                        Redeem.setTransaction_reedemed_id(t.getId());
+                        Redeem.setRedeem_request_id(redeem_request_id);
+                        Redeem.setStatus("REDEEM");
+                        transactionRepository.save(Redeem);
                         queue.poll();
                         break;
                     }
@@ -102,8 +102,8 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
             }
 
             //  UPDATE Payer points
-            Payer p = payerRepository.findByUser(points.getUser()).get(0);
-            p.setPoints(p.getPoints()-(points.getPoints()-pointsToReedem));
+            Payer p = payerRepository.findByPayer(points.getPayer()).get(0);
+            p.setPoints(p.getPoints()-(points.getPoints()-pointsToRedeem));
             payerRepository.save(p);
 
 
@@ -112,11 +112,12 @@ public class FetchRewardsServiceImpl implements FetchRewardsService{
         else{
             //No transaction Satisfies the points to reedem
             //Create a failed reedem request
-            Transaction Reedem = new Transaction(points.getUser(),"REEDEM_POINTS",-points.getPoints());
-            Reedem.setStatus("FAILED_INSUFFICIENT_POINTS");
-            transactionRepository.save(Reedem);
+            Transaction Redeem = new Transaction(points.getPayer(),-points.getPoints());
+            Redeem.setRedeem_request_id(redeem_request_id);
+            Redeem.setStatus("FAILED_INSUFFICIENT_POINTS");
+            transactionRepository.save(Redeem);
 
         }
-
+        return transactionRepository.findByRedeem_request_id(redeem_request_id);
     }
 }

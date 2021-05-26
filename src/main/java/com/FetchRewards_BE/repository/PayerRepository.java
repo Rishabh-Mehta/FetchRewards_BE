@@ -11,7 +11,7 @@ import java.util.List;
 public interface PayerRepository extends JpaRepository<Payer,Long> {
 
 
- List<Payer> findByUser(String user);
+ List<Payer> findByPayer(String payer);
 
 
 
