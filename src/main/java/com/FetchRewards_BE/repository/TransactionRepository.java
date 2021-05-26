@@ -20,6 +20,6 @@ public interface TransactionRepository extends JpaRepository<Transaction,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "Update transaction t set t.points = :points ,t.status = :status where t.id = :id",nativeQuery = true)
-    void updateTransactionById(@Param("id") long id, @Param("points") int points,@Param("status") String status);
+    @Query(value = "Update transaction t set t.available_points = :available_points ,t.status = :status where t.id = :id",nativeQuery = true)
+    void updateTransactionById(@Param("id") long id, @Param("available_points") int available_points,@Param("status") String status);
 }
